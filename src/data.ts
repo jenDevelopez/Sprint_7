@@ -15,3 +15,16 @@ export const data = [
     price: 200
   }
 ]
+
+export const inputs = [
+  {
+    id:1,
+    name: 'páginas',
+    title:'Numero de páginas'
+  },
+  {
+    id:2,
+    name: 'idiomas',
+    title:'Numero de idiomas'
+  }
+]

@@ -7,7 +7,7 @@ export default function Checkbox({
   price,
   checked,
   onChange,
-  children,
+  
 
 }: CheckboxProps){
   return (
@@ -24,7 +24,6 @@ export default function Checkbox({
         <label>
           {title} {`(${price}€)`}
         </label>
-        {children}
       </DivCheckbox>
     </>
   );

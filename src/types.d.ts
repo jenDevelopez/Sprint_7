@@ -11,7 +11,6 @@ export type CheckboxProps = {
   price:number
   checked: boolean,
   onChange: ChangeEventHandler
-  children: React.ReactNode
 
 }
 
@@ -34,9 +33,9 @@ export type ModalProps = {
   valueLange:number
   handlePageAdd: MouseEventHandler
   handlePageSubstract: MouseEventHandler
-  handleLangeAdd: MouseEventHandler
-  handleLangeSubstract: MouseEventHandler
-  onChangeLange: ChangeEventHandler
+  handleLanguageAdd: MouseEventHandler
+  handleLanguageSubstract: MouseEventHandler
+  onChangeLanguage: ChangeEventHandler
   onChangePage: ChangeEventHandler
 }
 

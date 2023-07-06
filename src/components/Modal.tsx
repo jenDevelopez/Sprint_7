@@ -7,9 +7,9 @@ export default function Modal({
   valueLange,
   handlePageAdd,
   handlePageSubstract,
-  handleLangeAdd,
-  handleLangeSubstract,
-  onChangeLange,
+  handleLanguageAdd,
+  handleLanguageSubstract,
+  onChangeLanguage,
   onChangePage,
 }: ModalProps) {
   return (
@@ -28,14 +28,14 @@ export default function Modal({
       </DivInput>
       <DivInput>
         <label htmlFor={`input-${inputs[1].id}`}>{inputs[1].title}</label>
-        <Button content="+" onClick={handleLangeAdd} />
+        <Button content="+" onClick={handleLanguageAdd} />
         <StyledInput
           id={`input-${inputs[1].id}`}
           type="text"
           value={valueLange}
-          onChange={onChangeLange}
+          onChange={onChangeLanguage}
         />
-        <Button content="-" onClick={handleLangeSubstract} />
+        <Button content="-" onClick={handleLanguageSubstract} />
       </DivInput>
     </DivModal>
   );

@@ -51,7 +51,35 @@ export const StyledButton = styled.button`
   font-weight: bold;
 `
 export const DivTotal = styled.div`
+
   align-self: center;
   font-size: 1.5rem;
   margin: 1rem;
+  `
+export const ContainerWellcome = styled.div`
+height: 100vh;
+display: flex;
+justify-content: center;
+align-items: center;
 `
+export const StyledWellcome = styled.div`
+  width: 600px;
+  height: 400px;
+  box-shadow: 3px 3px 5px #20c8c3;
+  border: none;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  `
+
+export const ButtonWellcome = styled.a`
+  width: 100px;
+  background-color: #20c8c3 ;
+  box-shadow: 2px 2px 7px #ccc;
+  padding: .5rem 1rem;
+  font-weight:bold;
+  border-radius: 10px;
+`
+

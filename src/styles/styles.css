@@ -5,4 +5,40 @@
   background-color: #332f2f;
 }
 
+.wellcome-div{
+  width: 100%;
+  height: 80vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+nav {
+  width: 50%;
+  height: 50px;
+  margin:auto;  
+}
 
+ul {
+  display: flex;
+  justify-content: space-around;
+  
+}
+
+li{
+  display: inline-block;
+}
+li a{
+  text-decoration: none;
+  font-size: 3rem;
+  color: #551A8B;
+  background-image: linear-gradient(90deg, #20c8c3, #551A8B);
+  background-repeat: no-repeat;
+  background-size: 0% 2px;
+  background-position: left bottom;
+  transition: background-size 1000ms ease-in-out;
+}
+
+li a:hover{
+  background-size: 100% 2px;
+  
+}

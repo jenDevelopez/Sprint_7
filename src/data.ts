@@ -20,11 +20,22 @@ export const inputs = [
   {
     id:1,
     name: 'páginas',
-    title:'Numero de páginas'
+    title:'Número de páginas'
   },
   {
     id:2,
     name: 'idiomas',
-    title:'Numero de idiomas'
+    title:'Número de idiomas'
+  }
+]
+
+export const info = [
+  {
+    id:1,
+    content: "Este componente debe indicar el número de páginas que desea incluir"
+  },
+  {
+    id:2,
+    content: "Este componente debe indicar el número de idiomas que desea incluir"
   }
 ]

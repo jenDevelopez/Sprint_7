@@ -35,10 +35,17 @@ export type ModalProps = {
   handlePageSubstract: MouseEventHandler
   handleLanguageAdd: MouseEventHandler
   handleLanguageSubstract: MouseEventHandler
-  onChangeLanguage: ChangeEventHandler
-  onChangePage: ChangeEventHandler
+  onChangeLanguage: ChangeEvent<HTMLElement>
+  onChangePage: ChangeEvent<HTMLElement>
+  informationPages: MouseEvent<HTMLImageElement>
+  informationLanguages: MouseEvent<HTMLImageElement>
 }
 
-export type functionProps = {
-  event:Event
+
+export type InformationProps = {
+  onClick: MouseEvent<HTMLButtonElement>
+}
+
+export type PopupProps = {
+  content:string
 }

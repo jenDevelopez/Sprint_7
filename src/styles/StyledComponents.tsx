@@ -9,7 +9,7 @@ export const DivApp = styled.div`
 `;
 
 export const DivCheckboxContainer = styled.div`
-  width: 300px;
+  width: 400px;
   box-shadow: 3px 3px 5px #20c8c3;
   margin: 1rem 0;
 
@@ -82,4 +82,36 @@ export const ButtonWellcome = styled.a`
   font-weight:bold;
   border-radius: 10px;
 `
+export const ButtonInfo = styled.button`
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+`
+export const InfoIcon = styled.img`
+  width: 20px;
+  height: 20px;
+`
+export const Container = styled.div`
+  width: 100%;
+  height: 100vh;
+  position: relative;
+`
+// export const ContainerPopup = styled.div`
+//   width: 40%;
+// `
 
+export const ContainerInfo = styled.div`
+  width: 500px;
+  height: 100px;
+  border: 1px solid #20c8c3;
+  background-color: #bbb;
+  border-radius: 20px;
+  padding: .5rem;
+  align-self: flex-start;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  top: 30%;
+  left:35%
+`

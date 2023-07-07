@@ -2,6 +2,8 @@ import { DivInput, DivModal, StyledInput } from "../styles/StyledComponents";
 import { inputs } from "../data";
 import { ModalProps } from "../types";
 import Button from "./Button";
+import Information from "./Information";
+
 export default function Modal({
   valuePage,
   valueLange,
@@ -11,6 +13,8 @@ export default function Modal({
   handleLanguageSubstract,
   onChangeLanguage,
   onChangePage,
+  informationPages,
+  informationLanguages,
 }: ModalProps) {
   return (
     <DivModal>
@@ -25,6 +29,7 @@ export default function Modal({
           onChange={onChangePage}
         />
         <Button content="-" onClick={handlePageSubstract} />
+        <Information onClick={informationPages}/>
       </DivInput>
       <DivInput>
         <label htmlFor={`input-${inputs[1].id}`}>{inputs[1].title}</label>
@@ -36,6 +41,7 @@ export default function Modal({
           onChange={onChangeLanguage}
         />
         <Button content="-" onClick={handleLanguageSubstract} />
+        <Information onClick={informationLanguages} />
       </DivInput>
     </DivModal>
   );

@@ -1,11 +1,13 @@
-*{
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;1,700&display=swap");
+* {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
   background-color: #332f2f;
+  font-family: Poppins, sans-serif;
 }
 
-.wellcome-div{
+.wellcome-div {
   width: 100%;
   height: 80vh;
   display: flex;
@@ -15,30 +17,66 @@
 nav {
   width: 50%;
   height: 50px;
-  margin:auto;  
+  margin: auto;
 }
 
-ul {
+nav ul {
   display: flex;
   justify-content: space-around;
-  
+  gap: 25px;
 }
 
-li{
+nav ul li {
   display: inline-block;
 }
-li a{
+nav ul li a {
   text-decoration: none;
   font-size: 3rem;
-  color: #551A8B;
-  background-image: linear-gradient(90deg, #20c8c3, #551A8B);
+  color: #551a8b;
+  background-image: linear-gradient(90deg, #20c8c3, #551a8b);
   background-repeat: no-repeat;
   background-size: 0% 2px;
   background-position: left bottom;
   transition: background-size 1000ms ease-in-out;
 }
 
-li a:hover{
+nav ul li a:hover {
   background-size: 100% 2px;
-  
+}
+
+ul {
+  list-style: none;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  /* justify-content: space-between; */
+}
+
+.styled-table {
+  border-collapse: collapse;
+  margin: 25px 0;
+  font-size: 1em;
+  min-width: 450px;
+  box-shadow: 0 0 10px rgba(32, 200, 195,0.5);
+}
+.styled-table thead tr {
+  /* background-color: #980081; */
+  color: #ffffff;
+  text-align: middle;
+}
+.styled-table th,
+.styled-table td {
+  padding: 12px 15px;
+}
+.styled-table tbody tr {
+  border-bottom: 1px solid #dddddd;
+}
+.styled-table tbody tr:nth-of-type(even) {
+  background-color: #f3f3f3;
+}
+.styled-table tbody tr:last-of-type {
+  border-bottom: 2px solid #20c8c3;
 }

@@ -1,8 +1,8 @@
 import ReactDOM from 'react-dom/client'
 import App from './App.tsx'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
-import Presupuesto from './pages/Presupuesto.tsx'
-import Bienvenida from './pages/Bienvenida.tsx'
+import Presupuesto from './pages/Budget.tsx'
+import Wellcome from './pages/Wellcome.tsx'
 
 const router = createBrowserRouter([
     {
@@ -11,7 +11,7 @@ const router = createBrowserRouter([
     },
     {
         path: '/wellcome',
-        element:  <Bienvenida />
+        element:  <Wellcome />
     },
     {
         path: "/presupuesto",

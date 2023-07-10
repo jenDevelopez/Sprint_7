@@ -26,6 +26,16 @@ export const inputs = [
     id:2,
     name: 'idiomas',
     title:'Número de idiomas'
+  },
+  {
+    id:3,
+    name:'nombre-presupuesto',
+    title: 'Nombre del presupuesto'
+  },
+  {
+    id:4,
+    name:'cliente',
+    title: 'Nombre del cliente'
   }
 ]
 

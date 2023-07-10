@@ -1,4 +1,4 @@
-import { ChangeEventHandler, MouseEventHandler } from "react"
+import { ChangeEvent, ChangeEventHandler, MouseEventHandler } from "react"
 
 export type ExtrasProps = {
   id:number,
@@ -31,12 +31,16 @@ export type ButtonProps = {
 export type ModalProps = {
   valuePage: number
   valueLange:number
+  valueBudgetName:string
+  valueClientName:string
   handlePageAdd: MouseEventHandler
   handlePageSubstract: MouseEventHandler
   handleLanguageAdd: MouseEventHandler
   handleLanguageSubstract: MouseEventHandler
-  onChangeLanguage: ChangeEvent<HTMLElement>
-  onChangePage: ChangeEvent<HTMLElement>
+  onChangeLanguage: React.ChangeEventHandler<HTMLInputElement>
+  onChangePage: React.ChangeEventHandler<HTMLInputElement>
+  // onChangeBudget: ChangeEvent<HTMLInputElement>
+  // onChangeClientName: ChangeEvent<HTMLInputElement>
   informationPages: MouseEvent<HTMLImageElement>
   informationLanguages: MouseEvent<HTMLImageElement>
 }
@@ -49,3 +53,32 @@ export type InformationProps = {
 export type PopupProps = {
   content:string
 }
+
+export type DataBudgetProps = {
+  children: React.DetailedHTMLProps<React.HTMLAttributes<HTMLDivElement>>
+}
+
+interface EstadoArray {
+  day: number;
+  month: number;
+  year: number;
+  clientName: string;
+  budgetName: string;
+  services: string[];
+  pages: number;
+  languages: number;
+  total: number;
+}
+
+interface budgetsArray {
+  day: number;
+  month: number;
+  year: number;
+  clientName: string;
+  budgetName: string;
+  services: string[];
+  pages: number;
+  languages: number;
+  total:number
+}
+

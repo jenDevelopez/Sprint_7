@@ -41,7 +41,8 @@ export const DivInput = styled.div`
 `
 export const StyledInput = styled.input`
   margin: 0 .5rem;
-  width: 70px;
+  width: 100px;
+  color: white;
 `
 
 export const StyledButton = styled.button`
@@ -55,6 +56,8 @@ export const DivTotal = styled.div`
   align-self: center;
   font-size: 1.5rem;
   margin: 1rem;
+  font-size: 2rem;
+  color: white;
   `
 export const ContainerWellcome = styled.div`
 height: 100vh;
@@ -96,9 +99,6 @@ export const Container = styled.div`
   height: 100vh;
   position: relative;
 `
-// export const ContainerPopup = styled.div`
-//   width: 40%;
-// `
 
 export const ContainerInfo = styled.div`
   width: 500px;
@@ -114,4 +114,67 @@ export const ContainerInfo = styled.div`
   position: absolute;
   top: 30%;
   left:35%
+`
+export const StyledForm = styled.form`
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+
+`
+
+export const StyledContainerInput = styled.div`
+    display: flex;
+  justify-content:center;
+  gap: 25px;
+`
+export const StyledDivInput = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+  color: white;
+`
+
+export const InputForm = styled.input`
+  border: none;
+  box-shadow: 2px 2px 5px #20c8c2;
+  border-radius: 10px;
+  height: 30px;
+  color: white;
+  padding: .5rem;
+
+  
+  &:focus-visible{
+    outline: transparent;
+    border: none;
+    background-color: #3b3434;
+  }
+  
+`
+
+export const StyledDataBudget = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+`
+
+export const ButtonSubmit = styled.button`
+width: fit-content;
+  padding: .5rem 1rem;
+  background-color: #20c8c3;
+  border: none;
+  border-radius: 20px;
+  font-weight: bold;
+  cursor: pointer;
+  box-shadow: 3px 3px 5px #332f2f;
+  
+  &:hover{
+    opacity: .8;
+    transition: all 250ms ease-in-out;
+  }
 `

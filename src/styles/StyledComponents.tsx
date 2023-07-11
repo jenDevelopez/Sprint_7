@@ -178,3 +178,16 @@ width: fit-content;
     transition: all 250ms ease-in-out;
   }
 `
+
+export const StyledFilterButton = styled.button`
+  padding: .5rem;
+  margin:0 5px;
+  background-color: #20c8c3;
+  border-radius: 20px;
+  font-weight: bold;
+
+  &:hover {
+    opacity: .8;
+    transition: all 250ms ease-in-out;
+  }
+`

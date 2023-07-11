@@ -8,6 +8,7 @@ import {
   InputForm,
   ButtonSubmit,
 } from "../styles/StyledComponents";
+import FilterButton from "../components/FilterButton";
 import { data, info, inputs } from "../data";
 import { useState, useEffect, FormEvent, ChangeEvent } from "react";
 import Checkbox from "../components/Checkbox";
@@ -16,11 +17,12 @@ import Popup from "../components/Popup";
 import DataBudget from "../components/DataBudget";
 import { budgetsArray } from "../types";
 
+
 export default function Budget() {
   const budgetsArray = [
     {
       day: 1,
-      month: 1,
+      month: 3,
       year: 2023,
       clientName: "Pepito Grillo",
       budgetName: "Fiesta",
@@ -40,22 +42,36 @@ export default function Budget() {
       languages: 2,
       total: 500,
     },
+    {
+      day: 2,
+      month: 10,
+      year: 2018,
+      clientName: "Alimentos S.A",
+      budgetName: "Ecommerce",
+      services: ["uno", "dos"],
+      pages: 5,
+      languages: 5,
+      total: 1000,
+    }
   ];
-  const [arrayBudget, setArrayBudget] = useState<budgetsArray[]>([]);
-  // const [newBudget, setNewBudget] = useState<budgetsArray[]>([])
-
+  
+  const [arrayBudget, setArrayBudget] = useState<budgetsArray[]>(budgetsArray);
+  const [originalOrder, setOriginalOrder] = useState<budgetsArray[]>(budgetsArray)
   const [budgetName, setBudgetName] = useState<string>("");
   const [clientName, setClientName] = useState<string>("");
   const [appState, setAppState] = useState<boolean>(false);
   const [infoPages, setInfoPages] = useState<boolean>(false);
   const [infoLanguages, setInfoLanguages] = useState<boolean>(false);
-  const [pages, setPages] = useState<number>(0);
-  const [languages, setLanguages] = useState<number>(0);
+  const [pages, setPages] = useState(0);
+  const [languages, setLanguages] = useState(0);
   const [total, setTotal] = useState<number>(0);
   const [checked, setChecked] = useState<boolean[]>(
     new Array(data.length).fill(false)
   );
 
+  //Lógica
+
+  //Obtener datos del formulario
   const getInfo = () => {
     const date = new Date();
     const dataObj = {
@@ -70,28 +86,25 @@ export default function Budget() {
       total: total,
     };
     dataObj.services = checked
-      .map((isChecked, index) => (isChecked ? data[index].title : null))
-      .filter((id) => id !== null) as string[];
+    .map((isChecked, index) => (isChecked ? data[index].title : null))
+    .filter((id) => id !== null) as string[];
+
+    
+    
     setArrayBudget((budgetsArray) => [...budgetsArray, dataObj]);
+    setOriginalOrder((budgetsArray) => [...budgetsArray,dataObj])
   };
-  const handleSubmit = (e: FormEvent) => {
-    e.preventDefault();
-    getInfo();
-  };
+
 
   const getArrayBudget = () => {
     const dataArrayBudget = localStorage.getItem("arrayBudget")
     dataArrayBudget && setArrayBudget(JSON.parse(dataArrayBudget))
+
   }
-
-  const getLanguages = () => {
-    const dataLanguages = localStorage.getItem("inputLanguages");
-    dataLanguages && setLanguages(JSON.parse(dataLanguages));
-  };
-
-  const getPages = () => {
-    const dataPages = localStorage.getItem("inputPages");
-    dataPages ? setPages(JSON.parse(dataPages)) : dataPages;
+  //Enviar datos del formulario
+  const handleSubmit = (e: FormEvent) => {
+    e.preventDefault();
+    getInfo();
   };
 
   const handleChange = (position: number) => {
@@ -141,18 +154,72 @@ export default function Budget() {
     setAppState(!appState);
   };
 
+  //Filtros
+  //Filtro de orden alfabético
+  const alphabeticalFilter = () => {
+    const sortedBudgets = [...originalOrder];
+    sortedBudgets.sort((a, b) => {
+      const budgetA = a.budgetName.toLowerCase()
+      const budgetB = b.budgetName.toLowerCase();
+    
+      if (budgetA < budgetB) {
+        return -1;
+      }
+      if (budgetA > budgetB) {
+        return 1;
+      }
+      return 0;
+    });
+    setArrayBudget(sortedBudgets)
+  }
+  //Filtro orden cronológico
+  const chronologicalFilter = () => {
+    const sortedBudgets = [...originalOrder]; // Crear una copia del array original
+    sortedBudgets.sort((a, b) => {
+      const dateA = new Date(a.year, a.month + 1, a.day).getTime();
+      const dateB = new Date(b.year, b.month + 1, b.day).getTime();
+  
+      return dateA - dateB;
+    });
+  
+    setArrayBudget(sortedBudgets); 
+  };
+
+  //Resetear filtros
+    const resetFilter = () => {
+      console.log(arrayBudget)
+      console.log(originalOrder)
+      setArrayBudget(originalOrder)
+      
+    }; 
+  
+
+
+
   useEffect(() => {
     handleChange();
   }, [languages, pages, total]);
 
+  //Use Effects
   useEffect(() => {
     const initialValue = window.localStorage.getItem("inputCheckbox");
     if (initialValue !== null) {
       const valor = JSON.parse(initialValue);
       setChecked(valor);
     }
-    getLanguages();
-    getPages();
+  
+    const initalPages = window.localStorage.getItem("inputPages")
+    if(initalPages !== null) {
+      const valorPages = JSON.parse(initalPages)
+      setPages(valorPages)
+    }
+
+    const initalLanguages = window.localStorage.getItem("inputLanguages")
+    if(initalLanguages !== null) {
+      const valorLanguages = JSON.parse(initalLanguages)
+      setLanguages(valorLanguages)
+    }
+
     getArrayBudget()
   }, []);
 
@@ -234,18 +301,19 @@ export default function Budget() {
         </ButtonSubmit>
       </StyledForm>
       <DataBudget>
+        <FilterButton content='Orden alfabético' onClick={alphabeticalFilter}/>
+        <FilterButton content='Orden cronológico' onClick={chronologicalFilter}/>
+        <FilterButton content="Restaurar filtros" onClick={resetFilter} />
         <table className="styled-table">
           <thead>
             <tr>
-              <th>Cliente</th>
               <th>Presupuesto</th>
               <th>Precio</th>
             </tr>
           </thead>
           <tbody>
-            {arrayBudget.map((item) => (
-              <tr key={item.budgetName}>
-                <td>{item.clientName}</td>
+            {arrayBudget.map((item,index) => (
+              <tr key={`budget-${index}`}>
                 <td>{item.budgetName}</td>
                 <td>{item.total}</td>
               </tr>

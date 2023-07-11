@@ -58,19 +58,8 @@ export type DataBudgetProps = {
   children: React.DetailedHTMLProps<React.HTMLAttributes<HTMLDivElement>>
 }
 
-interface EstadoArray {
-  day: number;
-  month: number;
-  year: number;
-  clientName: string;
-  budgetName: string;
-  services: string[];
-  pages: number;
-  languages: number;
-  total: number;
-}
 
-interface budgetsArray {
+export interface budgetsArray {
   day: number;
   month: number;
   year: number;
@@ -82,3 +71,4 @@ interface budgetsArray {
   total:number
 }
 
+export const

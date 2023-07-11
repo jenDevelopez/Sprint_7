@@ -16,6 +16,7 @@ import Modal from "../components/Modal";
 import Popup from "../components/Popup";
 import DataBudget from "../components/DataBudget";
 import { budgetsArray } from "../types";
+import { render } from "react-dom";
 
 
 export default function Budget() {
@@ -55,7 +56,9 @@ export default function Budget() {
     }
   ];
   
-  const [arrayBudget, setArrayBudget] = useState<budgetsArray[]>(budgetsArray);
+  const [search, setSearch] = useState("")
+    const [searchResults, setSearchResults] = useState<budgetsArray[]>([])
+    const [arrayBudget, setArrayBudget] = useState<budgetsArray[]>(budgetsArray);
   const [originalOrder, setOriginalOrder] = useState<budgetsArray[]>(budgetsArray)
   const [budgetName, setBudgetName] = useState<string>("");
   const [clientName, setClientName] = useState<string>("");
@@ -193,7 +196,16 @@ export default function Budget() {
       
     }; 
   
-
+    //Filtro de búsqueda
+      const handleSearch = () => {
+        const filteredResults = arrayBudget.filter((item) => {
+          const valueSearch = search.toLowerCase()
+          const budget = item.budgetName.toLowerCase()
+          return budget === valueSearch
+          
+        })
+        setSearchResults(filteredResults)
+      }
 
 
   useEffect(() => {
@@ -301,9 +313,23 @@ export default function Budget() {
         </ButtonSubmit>
       </StyledForm>
       <DataBudget>
-        <FilterButton content='Orden alfabético' onClick={alphabeticalFilter}/>
-        <FilterButton content='Orden cronológico' onClick={chronologicalFilter}/>
-        <FilterButton content="Restaurar filtros" onClick={resetFilter} />
+      <div className="div-search">
+          <label htmlFor="input-search"></label>
+          <InputForm
+            id="input-search"
+            type="search"
+            onChange={(e: ChangeEvent<HTMLInputElement>) => setSearch(e.target.value)}
+            
+          />
+          <button onClick={handleSearch} className="btn-search">
+            <img className="btn-img" src="../../public/search.svg" alt="busqueda" />
+          </button>
+        </div>
+        <div>
+          <FilterButton content='Orden alfabético' onClick={alphabeticalFilter}/>
+          <FilterButton content='Orden cronológico' onClick={chronologicalFilter}/>
+          <FilterButton content="Restaurar filtros" onClick={resetFilter} />
+        </div>
         <table className="styled-table">
           <thead>
             <tr>
@@ -312,6 +338,16 @@ export default function Budget() {
             </tr>
           </thead>
           <tbody>
+            {searchResults.map((item,index) => (
+              <tr key={`searchedBugdet-${index}`}>
+                <td>
+                  {item.budgetName}
+                </td>
+                <td>
+                  {item.total}
+                </td>
+              </tr>
+            ))}
             {arrayBudget.map((item,index) => (
               <tr key={`budget-${index}`}>
                 <td>{item.budgetName}</td>

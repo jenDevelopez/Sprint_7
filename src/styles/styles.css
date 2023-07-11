@@ -80,3 +80,23 @@ ul {
 .styled-table tbody tr:last-of-type {
   border-bottom: 2px solid #20c8c3;
 }
+
+.div-search{
+  margin: 1rem auto;
+  display: flex;
+  justify-content: center;
+  gap: 5px;
+  padding: .5rem;
+}
+
+
+.btn-search{
+  border: none;
+  display: flex;
+  align-items: center;
+ 
+}
+
+.btn-img{
+  /* width: 15px; */
+}

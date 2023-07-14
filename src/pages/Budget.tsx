@@ -129,19 +129,23 @@ export default function Budget() {
     setTotal(totalPrice);
   };
 
-  const handlePageAdd = () => {
+  const handlePageAdd = (e) => {
+    e.preventDefault()
     setPages(pages + 1);
   };
 
-  const handlePageSubstract = () => {
+  const handlePageSubstract = (e) => {
+    e.preventDefault()
     pages > 0 ? setPages(pages - 1) : null;
   };
 
-  const handleLanguageAdd = () => {
+  const handleLanguageAdd = (e) => {
+    e.preventDefault()
     setLanguages(languages + 1);
   };
 
-  const handleLanguagesubstract = () => {
+  const handleLanguagesubstract = (e) => {
+    e.preventDefault()
     languages > 0 ? setLanguages(languages - 1) : null;
   };
 

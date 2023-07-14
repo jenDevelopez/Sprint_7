@@ -1,13 +1,11 @@
-import { StyledDataBudget } from "../styles/StyledComponents"
 import { DataBudgetProps } from "../types"
+
+
 export default function DataBudget({children}:DataBudgetProps) {
   return (
-    <StyledDataBudget>
-      <ul>
-
+    <div className="styled-data-budget">
       {children}
-      </ul>
-    </StyledDataBudget>
+    </div>
     
   )
 }

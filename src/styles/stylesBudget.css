@@ -1,0 +1,42 @@
+.container-checkboxes {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+
+.subcontainer-checkboxes {
+  width: 400px;
+  box-shadow: 3px 3px 5px #20c8c3;
+  margin: 1rem 0;
+}
+
+.total-container {
+  align-self: center;
+  font-size: 1.5rem;
+  margin: 1rem;
+  font-size: 2rem;
+  color: white;
+}
+
+.div-subcontainer-inputs {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+.div-container-inputs {
+  display: flex;
+  flex-direction: column;
+}
+
+.info-icon {
+  width: 20px;
+  height: 20px;
+}
+
+.btn-info {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}

@@ -1,19 +1,19 @@
-import InitialButton from "../components/InitialButton"
-import { StyledWellcome, ContainerWellcome } from "../styles/StyledComponents"
 
-export default function Bienvenida() {
+import ButtonWellcome from '../components/Buttons/ButtonWellcome'
+import '../styles/stylesWellcome.css'
+export default function Wellcome() {
   return (
-    <ContainerWellcome>
-        <StyledWellcome>
+    <div className="container-wellcome">
+        <div className="styled-wellcome">
       <h1>
         Bienvenido/a
       </h1>
       <p>
         Ofrecemos diversos servicios web, para saber más clica!
       </p>
-      <InitialButton content="Entrar" onClick={()=>{console.log('bienvenida')}}/>
-    </StyledWellcome>
-    </ContainerWellcome>
+      <ButtonWellcome content='Entrar'/>
+    </div>
+    </div>
   
   )
 }

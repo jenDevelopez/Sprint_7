@@ -1,9 +1,10 @@
-import { ChangeEvent, ChangeEventHandler, MouseEventHandler } from "react"
+import React from "react"
+import {  ChangeEventHandler } from "react"
 
-export type ExtrasProps = {
-  id:number,
-  title:string
-}
+// export type ExtrasProps = {
+//   id:number,
+//   title:string
+// }
 
 export type CheckboxProps = {
   id:number,
@@ -11,39 +12,46 @@ export type CheckboxProps = {
   price:number
   checked: boolean,
   onChange: ChangeEventHandler
+  name: string
+  value:boolean
 
 }
 
 export type InputProps = {
-  id:number,
-  title:string,
-  value: number
-  handleClickAdd: MouseEventHandler
-  handleClickSubstract: MouseEventHandler
+  id:string,
+  name:string
   onChange: ChangeEventHandler
+  valueLabel: string
+  valueInput:string
+  type: string
 }
 
 export type ButtonProps = {
   content:string
-  onClick: MouseEventHandler
+  onClick: React.MouseEvent<HTMLButtonElement, MouseEvent>
 }
 
-export type ModalProps = {
-  valuePage: number
-  valueLange:number
-  valueBudgetName:string
-  valueClientName:string
-  handlePageAdd: MouseEventHandler
-  handlePageSubstract: MouseEventHandler
-  handleLanguageAdd: MouseEventHandler
-  handleLanguageSubstract: MouseEventHandler
-  onChangeLanguage: React.ChangeEventHandler<HTMLInputElement>
-  onChangePage: React.ChangeEventHandler<HTMLInputElement>
-  // onChangeBudget: ChangeEvent<HTMLInputElement>
-  // onChangeClientName: ChangeEvent<HTMLInputElement>
-  informationPages: MouseEvent<HTMLImageElement>
-  informationLanguages: MouseEvent<HTMLImageElement>
+export type FilterButtonProps = {
+  content: string
+  onClick: (e: React.MouseEvent<HTMLButtonElement>) => void
 }
+
+// export type ModalProps = {
+//   valuePage: number
+//   valueLange:number
+//   valueBudgetName:string
+//   valueClientName:string
+//   handlePageAdd: MouseEventHandler
+//   handlePageSubstract: MouseEventHandler
+//   handleLanguageAdd: MouseEventHandler
+//   handleLanguageSubstract: MouseEventHandler
+//   onChangeLanguage: React.ChangeEventHandler<HTMLInputElement>
+//   onChangePage: React.ChangeEventHandler<HTMLInputElement>
+//   // onChangeBudget: ChangeEvent<HTMLInputElement>
+//   // onChangeClientName: ChangeEvent<HTMLInputElement>
+//   informationPages: MouseEvent<HTMLImageElement>
+//   informationLanguages: MouseEvent<HTMLImageElement>
+// }
 
 
 export type InformationProps = {
@@ -59,7 +67,7 @@ export type DataBudgetProps = {
 }
 
 
-export interface budgetsArray {
+export type budgetsArray = {
   day: number;
   month: number;
   year: number;
@@ -71,4 +79,10 @@ export interface budgetsArray {
   total:number
 }
 
-export const
+export type Context = {
+  children: React.ReactNode
+}
+
+export type ButtonWellcomeProps = {
+  content:string
+}

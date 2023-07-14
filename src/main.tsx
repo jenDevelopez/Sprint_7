@@ -1,8 +1,10 @@
 import ReactDOM from 'react-dom/client'
 import App from './App.tsx'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
-import Presupuesto from './pages/Budget.tsx'
+import Budget from './pages/Budget.tsx'
 import Wellcome from './pages/Wellcome.tsx'
+import React from 'react'
+import { BudgetProvider } from './contexts/BudgetContext.tsx'
 
 const router = createBrowserRouter([
     {
@@ -14,11 +16,17 @@ const router = createBrowserRouter([
         element:  <Wellcome />
     },
     {
-        path: "/presupuesto",
-        element: <Presupuesto />
+        path: "/budget",
+        element: <Budget />
     }
 ])
+
+
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
-    
-    <RouterProvider router={router} />
+        <>
+            <BudgetProvider>
+                <RouterProvider router={router} /> 
+            </BudgetProvider>
+        </>
+
 )

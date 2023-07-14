@@ -1,10 +1,9 @@
-import { ButtonInfo, InfoIcon } from "../styles/StyledComponents";
 import { InformationProps } from "../types";
 
 export default function Information({onClick}:InformationProps) {
   return (
-    <ButtonInfo onClick={onClick}>
-      <InfoIcon src="../../public/info.svg" />
-    </ButtonInfo>
+    <div className="btn-info" onClick={onClick}>
+      <img className="info-icon" src="../../public/info.svg" />
+    </div>
   )
 }

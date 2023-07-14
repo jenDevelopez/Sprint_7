@@ -1,0 +1,115 @@
+.styled-btn {
+  width: 20px;
+  background-color: #32d1c9;
+  color: #000;
+  font-weight: bold;
+}
+
+.styled-checkbox {
+  margin: 1rem 0;
+  width: 300px;
+  height: 20px;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  color: white;
+  padding: 0.5rem;
+}
+
+.styled-input-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+  color: white;
+}
+
+.styled-input {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+}
+
+.container-input-modal {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  color: white;
+}
+
+.styled-input-modal {
+  width: 100px;
+}
+.info-container {
+  width: 500px;
+  height: 100px;
+  border: 1px solid #20c8c3;
+  background-color: #bbb;
+  border-radius: 20px;
+  padding: .5rem;
+  align-self: flex-start;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  top: 30%;
+  left:35%
+}
+
+.btn-submit {
+  width: fit-content;
+  padding: .5rem 1rem;
+  background-color: #20c8c3;
+  border: none;
+  border-radius: 20px;
+  font-weight: bold;
+  cursor: pointer;
+  box-shadow: 3px 3px 5px #332f2f;
+}
+
+.styled-data-budget {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+}
+
+.filter-btn {
+  padding: .5rem;
+  margin:0 5px;
+  background-color: #20c8c3;
+  border-radius: 20px;
+  font-weight: bold;
+
+}
+
+
+.filter-btn:hover {
+  opacity: .8;
+  transition: all 250ms ease-in-out;
+}
+
+.input-styled {
+  padding: .25rem .5rem;
+  border-radius: 10px;
+  background-color: #3c3a3a;
+  border:none;
+  color: white;
+  outline: none;
+}
+
+.input-styled:focus-visible {
+  background-color: #575151;
+}
+
+.modal-container {
+  border: 2px solid #20c8c3;
+  margin:1rem .25rem;
+  padding: .5rem;
+  border-radius: 15px;
+  color: white;
+}

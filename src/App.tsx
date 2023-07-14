@@ -9,7 +9,7 @@ export default function App() {
             <Link to="/wellcome">Wellcome</Link>
           </li>
           <li>
-            <Link to="/presupuesto">Presupuesto</Link>
+            <Link to="/budget">Budgets</Link>
           </li>
         </ul>
       </nav>

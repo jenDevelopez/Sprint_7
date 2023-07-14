@@ -1,5 +1,5 @@
-import { DivCheckbox } from "../styles/StyledComponents";
 import { CheckboxProps } from "../types";
+import '../styles/styled-components.css'
 
 export default function Checkbox({
   id,
@@ -7,24 +7,26 @@ export default function Checkbox({
   price,
   checked,
   onChange,
-  
+  name,
+  value
 
 }: CheckboxProps){
   return (
-    <>
-      <DivCheckbox>
+    
+      <div className="styled-checkbox">
         <input
           type="checkbox"
           id={`checkbox-${id}`}
           checked={checked}
           onChange={onChange}
-          
+          name={name}
+          value={value}
         />
 
         <label>
           {title} {`(${price}€)`}
         </label>
-      </DivCheckbox>
-    </>
+      </div>
+
   );
 }

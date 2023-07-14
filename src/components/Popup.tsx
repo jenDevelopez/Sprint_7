@@ -1,12 +1,11 @@
-import { ContainerInfo } from '../styles/StyledComponents'
 import { PopupProps } from '../types'
 
 export default function Popup({content}:PopupProps) {
   return (
     
-      <ContainerInfo>
+      <div className='info-container'>
           {content}
-      </ContainerInfo>
+      </div>
     
   )
 }

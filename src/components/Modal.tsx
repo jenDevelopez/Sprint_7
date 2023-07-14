@@ -5,8 +5,10 @@ import {
 } from "../styles/StyledComponents";
 import { inputs } from "../data";
 import { ModalProps } from "../types";
-import Button from "./Button";
+import Button from "./Buttons/ButtonWellcome";
 import Information from "./Information";
+
+
 
 export default function Modal({
   valuePage,
@@ -20,18 +22,19 @@ export default function Modal({
   informationLanguages,
   informationPages
 }: ModalProps) {
+
   return (
     
     <DivModal>
         <DivInput>
           <label htmlFor={`input-${inputs[0].id}`}>{inputs[0].title}</label>
           <Button content="+" onClick={handlePageAdd} />
-
           <StyledInput
             id={`input-${inputs[0].id}`}
             type="text"
             value={valuePage}
             onChange={onChangePage}
+            name="pages"
           />
           <Button content="-" onClick={handlePageSubstract} />
           <Information onClick={informationPages} />
@@ -44,10 +47,12 @@ export default function Modal({
             type="text"
             value={valueLange}
             onChange={onChangeLanguage}
+            name="languages"
           />
           <Button content="-" onClick={handleLanguageSubstract} />
           <Information onClick={informationLanguages} />
         </DivInput>
+        Data: {contextData}
     </DivModal>
     
   );
